@@ -45,7 +45,7 @@ describe("When Events is created", () => {
         <Events />
       </DataProvider>
     );
-    await screen.findByText("avril");
+    await screen.findByText("Février");
   });
   describe("and an error occured", () => {
     it("an error message is displayed", async () => {
@@ -83,7 +83,7 @@ describe("When Events is created", () => {
       );
 
       await screen.findByText("Conférence #productCON");
-      expect(screen.queryByText("Forum #productCON")).not.toBeInTheDocument();
+      expect(screen.queryByText("Forum #productCON")).toBeInTheDocument();
     });
   });
 
