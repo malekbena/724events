@@ -14,32 +14,38 @@ const Select = ({
   type = "normal",
 }) => {
   const [value, setValue] = useState();
-  const [collapsed, setCollapsed] = useState(true);
+  const [collapsed, setCollapsed] = useState(false);
   const changeValue = (newValue) => {
-    onChange();
+    setCollapsed(false);
     setValue(newValue);
-    setCollapsed(newValue);
+    onChange(newValue);
+  };
+  const checkDefault = (s) => {
+    if (value === s) {
+      return true;
+    }
+    return false;
   };
   return (
     <div className={`SelectContainer ${type}`} data-testid="select-testid">
       {label && <div className="label">{label}</div>}
       <div className="Select">
         <ul>
-          <li className={collapsed ? "SelectTitle--show" : "SelectTitle--hide"}>
+          <li className={!collapsed ? "SelectTitle--show" : "SelectTitle--hide"}>
             {value || (!titleEmpty && "Toutes")}
           </li>
-          {!collapsed && (
+          {collapsed && (
             <>
               {!titleEmpty && (
                 <li onClick={() => changeValue(null)}>
-                  <input defaultChecked={!value} name="selected" type="radio" />{" "}
+                  <input defaultChecked={!value && true} name="selected" type="radio" />{" "}
                   Toutes
                 </li>
               )}
               {selection.map((s) => (
-                <li key={s} onClick={() => changeValue(s)}>
+                <li key={s} onClick={() => {changeValue(s)}}>
                   <input
-                    defaultChecked={value === s}
+                    defaultChecked={checkDefault(s)}
                     name="selected"
                     type="radio"
                   />{" "}
