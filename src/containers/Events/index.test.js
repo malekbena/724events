@@ -83,7 +83,7 @@ describe("When Events is created", () => {
       );
 
       await screen.findByText("Conférence #productCON");
-      expect(screen.queryByText("forum #DigitonPARIS")).not.toBeInTheDocument();
+      expect(screen.queryByText("Forum #productCon")).not.toBeInTheDocument();
     });
   });
 
