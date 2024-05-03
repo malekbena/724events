@@ -1,13 +1,14 @@
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import Form from "./index";
 
-describe("When Events is created", () => {
-  it("a list of event card is displayed", async () => {
+describe("When Form is created", () => {
+  it("a list of fields is displayed", async () => {
     render(<Form />);
     await screen.findByText("Email");
     await screen.findByText("Nom");
     await screen.findByText("Prénom");
     await screen.findByText("Personel / Entreprise");
+    expect(await screen.findByText("Message")).toBeInTheDocument();
   });
 
   describe("and a click is triggered on the submit button", () => {
