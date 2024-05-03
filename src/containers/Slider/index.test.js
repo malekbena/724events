@@ -35,8 +35,8 @@ describe("When slider is created", () => {
         <Slider />
       </DataProvider>
     );
-    await screen.findByText("World economic forum");
-    await screen.findByText("janvier");
+    expect(await screen.findByText("World economic forum")).toBeInTheDocument();
+    expect(await screen.findByText("janvier")).toBeInTheDocument();
     expect(await screen.findByText(
       "Oeuvre à la coopération entre le secteur public et le privé."
     )).toBeInTheDocument();
