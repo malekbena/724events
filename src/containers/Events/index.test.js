@@ -105,7 +105,7 @@ describe("When Events is created", () => {
       );
 
       await screen.findByText("24-25-26 Février");
-      await screen.findByText("1 site web dédié");
+      expect(await screen.findByText("1 site web dédié")).toBeInTheDocument();
     });
   });
 });

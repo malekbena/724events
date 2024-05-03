@@ -26,6 +26,6 @@ describe("When Modal data is created", () => {
     await screen.findByText(
       "Présentation des outils analytics aux professionnels du secteur"
     );
-    await screen.findByText("Conférence #productCON");
+    expect(await screen.findByText("Conférence #productCON")).toBeInTheDocument();
   });
 });

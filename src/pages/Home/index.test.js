@@ -23,6 +23,7 @@ describe("When Form is created", () => {
       );
       await screen.findByText("En cours");
       await waitFor(() => screen.findByText("Message envoyé !"), { timeout: 3000 });
+      expect(await screen.findByText("Merci pour votre message nous tâcherons de vous répondre dans les plus brefs délais")).toBeInTheDocument();
     });
   });
 
